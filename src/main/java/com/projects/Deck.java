@@ -28,6 +28,9 @@ public class Deck {
     public int size() {
         return this.deck.size();
     }
+    public String peekTopCard() {
+        return deck.getFirst().getFullName();
+    }
 
     public Card pullTopCard(boolean isQuiet) {
         Card card = deck.removeFirst();
@@ -104,6 +107,12 @@ public class Deck {
 
             }
         }
+    }
+    public void addFirst(Card card) {
+        this.deck.addFirst(card);
+    }
+    public void addLast(Card card) {
+        this.deck.addLast(card);
     }
     public void readout() {
         for (Card card :
