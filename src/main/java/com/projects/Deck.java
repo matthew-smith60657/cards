@@ -18,8 +18,8 @@ public class Deck {
         }
         for (int i = 0; i < STANDARD_AMOUNT_OF_SHUFFLES; i++) {
             this.shuffle();
-            if(Math.random() > .75) {
-                this.cutDeckAndReturn();
+            if(Math.random() > .70) {
+                this.sideShuffle();
             }
         }
         this.shuffle();
@@ -53,13 +53,33 @@ public class Deck {
         }
         // System.out.println("I cut the deck!");
     }
+    public void sideShuffle() {
+        int cutPoint = 0;
+        Deque<Card> tempDeck = new ArrayDeque<>();
+        Deque<Card> remainingDeck = this.cutDeck(this.deck.size()); // Move the main deck into a temp Deque
+
+        do {
+            cutPoint = 7 + (int) (Math.random() * 6); // Want around 7-12 cards here
+            if(cutPoint > remainingDeck.size()) {
+                cutPoint = remainingDeck.size();
+            }
+            for (int i = 0; i < cutPoint; i++) {
+                // Take top X=cutPoint cards off the top of remaining deck & move to the bottom X cards to temp deck
+                tempDeck.addLast(remainingDeck.removeFirst());
+            }
+            for (int i = 0; i < cutPoint; i++) {
+                // Take card from bottom of temp deck & move to top of this deck
+                this.deck.addFirst(tempDeck.removeLast());
+            }
+        } while (!remainingDeck.isEmpty());
+    }
 
     public void shuffle() {
         int cutPoint = this.deck.size() / 2 + (int)(Math.random() * deck.size() / 10 - deck.size() / 20);
         Deque<Card> splitDeck = this.cutDeck(cutPoint);
         Deque<Card> remainingDeck = this.cutDeck(this.deck.size());
         boolean useSplitDeck = true;
-        // System.out.println("I shuffled the deck");
+
         while(!(splitDeck.isEmpty()  && remainingDeck.isEmpty())) {
             if(splitDeck.isEmpty()) {
                 this.deck.addLast(remainingDeck.removeFirst());
@@ -83,6 +103,12 @@ public class Deck {
                 useSplitDeck = !useSplitDeck;
 
             }
+        }
+    }
+    public void readout() {
+        for (Card card :
+                this.deck) {
+            System.out.println(card.getFullName());
         }
     }
 }
