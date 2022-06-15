@@ -86,6 +86,34 @@ public class Card {
         }
         else return 0;
     }
+    public int compareToWithSuit(Card secondCard) {
+        int result = compareTo(secondCard);
+        if(result != 0) {
+            return result;
+        }
+        else {
+            int thisIndex = -1;
+            int secondIndex = -1;
+
+            for (int i = 0; i < ACCEPTABLE_SUITS.length; i++) {
+                if(this.getSuit().equals(ACCEPTABLE_SUITS[i])) {
+                    thisIndex = i;
+                }
+                if(secondCard.getSuit().equals(ACCEPTABLE_SUITS[i])) {
+                    secondIndex = i;
+                }
+            }
+            if (thisIndex > secondIndex) {
+                return 1;
+            }
+            else if (thisIndex < secondIndex) {
+                return -1;
+            }
+            else {
+                return 0;
+            }
+        }
+    }
 
     public boolean isSameSuit (Card secondCard) {
         return this.suit.equals(secondCard.getSuit());

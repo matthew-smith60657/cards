@@ -17,11 +17,15 @@ public class Main {
             if (choice == 1) {
                 War war = new War(name);
             }
+            // 2: Go Fish
+            if (choice == 2) {
+                GoFish goFish = new GoFish(name);
+            }
         }
     }
 
     public static int promptForInput() {
-        final String[] options = {"Exit", "War", "Randomization Stats"};
+        final String[] options = {"Exit", "War", "Go Fish"};
         int choice = 0;
         boolean prompt = true;
         Scanner keyboard = new Scanner(System.in);

@@ -4,10 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="93969ed2-8d66-4ae2-97cf-87e96ee85104" name="Changes" comment="added side shuffle to Deck">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/projects/War.java" afterDir="false" />
+    <list default="true" id="93969ed2-8d66-4ae2-97cf-87e96ee85104" name="Changes" comment="Added main menu choices &amp; working War class">
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/projects/GoFish.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/projects/Deck.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/projects/Deck.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/projects/Card.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/projects/Card.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/projects/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/projects/Main.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -34,13 +34,13 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "last_opened_file_path": "C:/Users/Student/workspace/projects/cards"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/Student/workspace/projects/cards&quot;
   }
-}]]></component>
+}</component>
   <component name="RunManager">
     <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="com.projects.Main" />
@@ -91,7 +91,14 @@
       <option name="project" value="LOCAL" />
       <updated>1655206820477</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="Added main menu choices &amp; working War class">
+      <created>1655243294025</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1655243294025</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -109,6 +116,7 @@
     <MESSAGE value="testing from intelliJ" />
     <MESSAGE value="working deck of cards" />
     <MESSAGE value="added side shuffle to Deck" />
-    <option name="LAST_COMMIT_MESSAGE" value="added side shuffle to Deck" />
+    <MESSAGE value="Added main menu choices &amp; working War class" />
+    <option name="LAST_COMMIT_MESSAGE" value="Added main menu choices &amp; working War class" />
   </component>
 </project>
