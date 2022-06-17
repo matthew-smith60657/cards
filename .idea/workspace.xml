@@ -4,11 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="93969ed2-8d66-4ae2-97cf-87e96ee85104" name="Changes" comment="Added main menu choices &amp; working War class">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/projects/GoFish.java" afterDir="false" />
+    <list default="true" id="93969ed2-8d66-4ae2-97cf-87e96ee85104" name="Changes" comment="Started Go Fish">
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/projects/Hand.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/projects/Card.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/projects/Card.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/projects/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/projects/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/projects/GoFish.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/projects/GoFish.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -38,7 +38,7 @@
   &quot;keyToString&quot;: {
     &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/Student/workspace/projects/cards&quot;
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/Student/workspace/matthew-smith-student-code/module-1/02_Variables_and_Datatypes/lecture&quot;
   }
 }</component>
   <component name="RunManager">
@@ -98,7 +98,14 @@
       <option name="project" value="LOCAL" />
       <updated>1655243294025</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="Started Go Fish">
+      <created>1655298108791</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1655298108791</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -117,6 +124,7 @@
     <MESSAGE value="working deck of cards" />
     <MESSAGE value="added side shuffle to Deck" />
     <MESSAGE value="Added main menu choices &amp; working War class" />
-    <option name="LAST_COMMIT_MESSAGE" value="Added main menu choices &amp; working War class" />
+    <MESSAGE value="Started Go Fish" />
+    <option name="LAST_COMMIT_MESSAGE" value="Started Go Fish" />
   </component>
 </project>

@@ -23,6 +23,30 @@ public class Card {
     public String getSuit() {
         return suit;
     }
+    protected static void printAcceptableValues() {
+        String result = "";
+        boolean isFirst = true;
+        for (String s : ACCEPTABLE_VALUES) {
+            // Separate acceptable values with a comma
+            if(isFirst) {
+                result += s;
+                isFirst = false;
+            }
+            else {
+                result += ", " + s;
+            }
+        }
+        System.out.println(result);
+    }
+
+    protected static boolean isMyValueAcceptable(String value) {
+        for (String acceptable_value : ACCEPTABLE_VALUES) {
+            if (acceptable_value.equals(value)) {
+                return true;
+            }
+        }
+        return false;
+    }
 
     private boolean isValueAcceptable(String value) {
         for (String acceptable_value : ACCEPTABLE_VALUES) {
