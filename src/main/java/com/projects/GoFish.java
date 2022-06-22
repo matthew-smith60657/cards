@@ -5,6 +5,8 @@ import java.util.*;
 public class GoFish {
     private final int STARTING_HAND_SIZE = 7;
     private final int MAX_COMPUTER_MEMORY_SIZE = 5;
+    private int playerOneScore = 0;
+    private int playerTwoScore = 0;
     // Remember last few selections to avoid over-guessing a specific value
     // Let's do a list to treat it like a queue, but with easy searching functionality
     private List<String> previouslySelectedByComputer = new ArrayList<>();
@@ -53,25 +55,30 @@ public class GoFish {
                 // Resolve search result: Give all matching values in opposing hand to fisher, else draw from deck if not empty
                 if(!isValueFound) {
                     System.out.println("GO FISH!!!");
-                    goFish(playerOneHand, false);
+                    String newCardValue = goFish(playerOneHand, false);
                     // On adding a card, check if this makes 4-of-a-kind
-                    boolean isFound = removeFourOfAKind(playerTwoHand, fishValueFromKeyboard);
+                    boolean isFound = removeFourOfAKind(playerOneHand, newCardValue);
                     if(isFound) {
-                        System.out.println("Wow, you made a 4-of-a-kind with " + fishValueFromKeyboard + "s!");
+                        System.out.println("Wow, you made a 4-of-a-kind with " + newCardValue + "s!");
+                        playerOneScore++;
                     }
                     playerOneHand.sortHand(false);
                 } else {
                     System.out.println("Bah, yes...");
                     while (isValueFound) {
                         isValueFound = takeValueFromHand(fishValueFromKeyboard, playerOneHand, playerTwoHand);
-                        // On adding a card, check if this makes 4-of-a-kind
                     }
-                    boolean isFound = removeFourOfAKind(playerTwoHand, fishValueFromKeyboard);
+                    // On adding a card, check if this makes 4-of-a-kind
+                    boolean isFound = removeFourOfAKind(playerOneHand, fishValueFromKeyboard);
                     if(isFound) {
                         System.out.println("Wow, you made a 4-of-a-kind with " + fishValueFromKeyboard + "s!");
+                        // Increment P1 score
+                        playerOneScore++;
+                        // Display current score
                     }
                     playerOneHand.sortHand(false);
                 }
+                // Should be able to pull out resolve end of turn stuff like check for four-tet & increment score
             }
             else {
                 // Have computer select a value from its hand
@@ -82,20 +89,24 @@ public class GoFish {
                 // Resolve search: go fish or take all values from P! hand
                 if(!isValueFound) {
                     System.out.println("Time to go fishing...");
-                    goFish(playerTwoHand, true);
+                    String newCardValue = goFish(playerTwoHand, true);
                     // On adding a card, check if this makes 4-of-a-kind
-                    boolean isFound = removeFourOfAKind(playerTwoHand, selectedValue);
+                    boolean isFound = removeFourOfAKind(playerTwoHand, newCardValue);
                     if(isFound) {
-                        System.out.println("I made a 4-of-a-kind with " + selectedValue + "s!!!");
+                        System.out.println("I made a 4-of-a-kind with " + newCardValue + "s!!!");
+                        // Increment P2 score
+                        playerTwoScore++;
                     }
                 } else {
+                    System.out.println("Yesss!! Gimme those " + selectedValue + "s!");
                     while (isValueFound) {
                         isValueFound = takeValueFromHand(selectedValue, playerTwoHand, playerOneHand);
                         // On adding a card, check if this makes 4-of-a-kind
-                        boolean isFound = removeFourOfAKind(playerTwoHand, selectedValue);
-                        if(isFound) {
-                            System.out.println("I made a 4-of-a-kind with " + selectedValue + "s!!!");
-                        }
+                    }
+                    boolean isFound = removeFourOfAKind(playerTwoHand, selectedValue);
+                    if(isFound) {
+                        System.out.println("I made a 4-of-a-kind with " + selectedValue + "s!!!");
+                        playerTwoScore++;
                     }
                 }
             }
@@ -106,19 +117,11 @@ public class GoFish {
         return playerOneHand.isEmpty();
     }
     private boolean removeFourOfAKind(Hand hand, String value) {
-        int valueCount = 0;
-        for(int i = 0; i < hand.size(); i++) {
-            if(hand.isValueInHand(value)) {
-                valueCount++;
-            }
-        }
-        if(valueCount == 4) {
-            for(int i = 0; i < hand.size(); i++) {
-                if(hand.isValueInHand((value))) {
-                    hand.discardCardByIndex(i);
-                    // hand.size should be one element smaller now, so redo this index check
-                    i--;
-                }
+        int valueCount = hand.countValueInHand(value);
+        if(valueCount >= 4) {
+            while(hand.isValueInHand(value)) {
+                // if card at hand(i) is value, then discard; start at hand.size() - 1 & decrement
+                hand.discardCardByIndex(hand.findFirstCardByValue(value));
             }
             return true;
         }
@@ -138,8 +141,12 @@ public class GoFish {
             System.out.println("Is that value in memory? " + !isGoodChoice);
             if(loopCount > 5) {
                 // After five tries, pick the last
-                isGoodChoice = isInMemory(playerTwoHand.getCardByIndex(0).getValue(), true);
+                index = (int) (Math.random() * (double) playerTwoHand.size());
+                System.out.println("That's enough thinking, I'll just choose " + playerTwoHand.getCardByIndex(index).getValue() + " randomly...");
+                isGoodChoice = isInMemory(playerTwoHand.getCardByIndex(index).getValue(), true);
+                break;
             }
+            System.out.println("That was loop #" + loopCount);
             loopCount++;
         }
         // Return value
@@ -165,8 +172,10 @@ public class GoFish {
         return false;
     }
 
-    private void goFish(Hand hand, boolean isQuiet) {
-        hand.addCard(deck.pullTopCard(isQuiet));
+    private String goFish(Hand hand, boolean isQuiet) {
+        Card card = deck.pullTopCard(isQuiet);
+        hand.addCard(card);
+        return card.getValue();
     }
     private boolean takeValueFromHand(String value, Hand playerHand, Hand opponentHand) {
         Card takenCard = opponentHand.playFirstCardWithValue(value);

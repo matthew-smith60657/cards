@@ -38,7 +38,7 @@ public class Hand {
     public Card getCardByIndex(int index) {
         return hand.get(index);
     }
-    private int findFirstCardByValue(String value) {
+    public int findFirstCardByValue(String value) {
         for (int i = 0; i < hand.size(); i++) {
             if(hand.get(i).getValue().equals(value)) {
                 return i;
@@ -98,5 +98,15 @@ public class Hand {
                 hand.add(i, sortedCard);
             }
         }
+    }
+
+    public int countValueInHand(String value) {
+        int count = 0;
+        for(Card card : hand) {
+            if (card.getValue().equals(value)) {
+                count++;
+            }
+        }
+        return count;
     }
 }

@@ -4,7 +4,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="93969ed2-8d66-4ae2-97cf-87e96ee85104" name="Changes" comment="Finished play loop; still need 4oaK checker &amp; better computer guess selection" />
+    <list default="true" id="93969ed2-8d66-4ae2-97cf-87e96ee85104" name="Changes" comment="Finished play loop; still need 4oaK checker &amp; better computer guess selection">
+      <change afterPath="$PROJECT_DIR$/src/test/java/RemoveFourtet.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/projects/GoFish.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/projects/GoFish.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/projects/Hand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/projects/Hand.java" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -29,13 +35,13 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/Student/workspace/matthew-smith-student-code/module-1/02_Variables_and_Datatypes/lecture&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "last_opened_file_path": "C:/Users/Student/workspace/matthew-smith-student-code/module-1/02_Variables_and_Datatypes/exercise"
   }
-}</component>
+}]]></component>
   <component name="RunManager">
     <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="com.projects.Main" />
@@ -129,5 +135,26 @@
     <MESSAGE value="Started Go Fish" />
     <MESSAGE value="Finished play loop; still need 4oaK checker &amp; better computer guess selection" />
     <option name="LAST_COMMIT_MESSAGE" value="Finished play loop; still need 4oaK checker &amp; better computer guess selection" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/com/projects/GoFish.java</url>
+          <line>71</line>
+          <option name="timeStamp" value="4" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/com/projects/GoFish.java</url>
+          <line>59</line>
+          <option name="timeStamp" value="5" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
+    <watches-manager>
+      <configuration name="Application">
+        <watch expression="card.value" />
+      </configuration>
+    </watches-manager>
   </component>
 </project>
