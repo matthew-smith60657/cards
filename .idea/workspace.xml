@@ -4,12 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="93969ed2-8d66-4ae2-97cf-87e96ee85104" name="Changes" comment="Started Go Fish">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/projects/Hand.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/projects/Card.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/projects/Card.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/projects/GoFish.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/projects/GoFish.java" afterDir="false" />
-    </list>
+    <list default="true" id="93969ed2-8d66-4ae2-97cf-87e96ee85104" name="Changes" comment="Finished play loop; still need 4oaK checker &amp; better computer guess selection" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -105,7 +100,14 @@
       <option name="project" value="LOCAL" />
       <updated>1655298108791</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="Finished play loop; still need 4oaK checker &amp; better computer guess selection">
+      <created>1655485483861</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1655485483861</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -125,6 +127,7 @@
     <MESSAGE value="added side shuffle to Deck" />
     <MESSAGE value="Added main menu choices &amp; working War class" />
     <MESSAGE value="Started Go Fish" />
-    <option name="LAST_COMMIT_MESSAGE" value="Started Go Fish" />
+    <MESSAGE value="Finished play loop; still need 4oaK checker &amp; better computer guess selection" />
+    <option name="LAST_COMMIT_MESSAGE" value="Finished play loop; still need 4oaK checker &amp; better computer guess selection" />
   </component>
 </project>
