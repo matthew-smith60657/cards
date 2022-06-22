@@ -10,7 +10,10 @@ The cards project is a library for creating & playing games involving playing ca
 - Java class GoFish representing the two-player game, 'Go Fish'.
 - Java class Main with a simple menu system to select a game to play or perform randomization tests on the shuffling functions.
 
-###Future ideas
+##In progress
+- Add victory condition & flavortext for most four-tets, as well as score updates.
+
+##Future ideas
 - Old Maid
 - Crazy Eights
 - Rummy
