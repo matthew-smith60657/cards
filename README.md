@@ -12,6 +12,8 @@ The cards project is a library for creating & playing games involving playing ca
 
 ##In progress
 - Add victory condition & flavortext for most four-tets, as well as score updates.
+- Connect to localhost database to store user login & statistics
+- Shift localhost database to cloud database
 
 ##Future ideas
 - Old Maid
