@@ -5,11 +5,16 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="93969ed2-8d66-4ae2-97cf-87e96ee85104" name="Changes" comment="Finished play loop; still need 4oaK checker &amp; better computer guess selection">
-      <change afterPath="$PROJECT_DIR$/src/test/java/RemoveFourtet.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/projects/dao/JdbcUserDao.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/projects/dao/UserDAO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/projects/model/User.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/TestJdbcUserDao.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/resources/test-data.sql" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/projects/GoFish.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/projects/GoFish.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/projects/Hand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/projects/Hand.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/projects/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/projects/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/RemoveFourtet.java" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -19,6 +24,7 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
+        <option value="Interface" />
         <option value="Class" />
       </list>
     </option>
@@ -35,14 +41,25 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "last_opened_file_path": "C:/Users/Student/workspace/matthew-smith-student-code/module-1/02_Variables_and_Datatypes/exercise"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/Student/workspace/matthew-smith-student-code/module-2/11b_Consuming_RESTful_APIs_Part_1/exercise&quot;
   }
-}]]></component>
-  <component name="RunManager">
+}</component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\Student\workspace\projects\cards" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\Student\workspace\projects\cards\database" />
+    </key>
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="" />
+    </key>
+  </component>
+  <component name="RunManager" selected="JUnit.TestJdbcUserDao">
     <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="com.projects.Main" />
       <module name="cards" />
@@ -56,8 +73,18 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="TestJdbcUserDao" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="cards" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" value="TestJdbcUserDao" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.TestJdbcUserDao" />
         <item itemvalue="Application.Main" />
       </list>
     </recent_temporary>
@@ -140,14 +167,9 @@
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/com/projects/GoFish.java</url>
-          <line>71</line>
-          <option name="timeStamp" value="4" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/com/projects/GoFish.java</url>
-          <line>59</line>
-          <option name="timeStamp" value="5" />
+          <url>file://$PROJECT_DIR$/src/main/java/com/projects/dao/JdbcUserDao.java</url>
+          <line>54</line>
+          <option name="timeStamp" value="17" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

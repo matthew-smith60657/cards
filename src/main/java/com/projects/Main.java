@@ -1,11 +1,27 @@
 package com.projects;
 
+import com.projects.dao.JdbcUserDao;
+import org.apache.commons.dbcp2.BasicDataSource;
+import org.springframework.jdbc.core.JdbcTemplate;
+import org.springframework.jdbc.support.rowset.SqlRowSet;
+
 import java.util.ArrayDeque;
 import java.util.Deque;
 import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {
+        /*
+        BasicDataSource ds = new BasicDataSource();
+        ds.setUrl("jdbc:postgresql://localhost:5432/postgres");
+        ds.setUsername("postgres");
+        ds.setPassword("postgres1");
+        JdbcTemplate jdbcTemplate = new JdbcTemplate(ds);
+        String sql = "SELECT * FROM user_table;";
+        SqlRowSet rowSet = jdbcTemplate.queryForRowSet(sql);
+        System.out.println(rowSet.next());
+        */
+
         int choice = -1;
         String name = "Player One";
         // While input isn't 'Exit'
@@ -30,19 +46,17 @@ public class Main {
         boolean prompt = true;
         Scanner keyboard = new Scanner(System.in);
 
-        while(prompt) {
+        while (prompt) {
             menuPrint(options);
             System.out.print("Enter your choice (0 to exit): ");
             try {
                 choice = keyboard.nextInt();
                 if (choice < 0) {
                     System.out.println("Only positive inputs please...");
-                }
-                else if (choice == 0) {
+                } else if (choice == 0) {
                     prompt = false;
                     System.out.println("Until next time...");
-                }
-                else {
+                } else {
                     prompt = false;
                     System.out.println("Initializing " + options[choice] + "!\n");
                 }
@@ -53,6 +67,7 @@ public class Main {
         }
         return choice;
     }
+
     public static void menuPrint(String[] options) {
 
         System.out.println("*** Let's Play Some Card Games!!! ***\n");

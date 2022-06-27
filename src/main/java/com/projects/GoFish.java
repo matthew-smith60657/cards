@@ -29,6 +29,12 @@ public class GoFish {
 
         // Play loop, end game when one player's hand is empty
         boolean isPlayerOneVictorious = playGame(isPlayerOneTurn, name);
+        if(isPlayerOneVictorious) {
+            System.out.println("Congrats! I hope we play again soon.");
+        }
+        else {
+            System.out.println("Better luck next time, let's play again soon.");
+        }
     }
     private boolean playGame(boolean isPlayerOneTurn, String name) {
         boolean isValueFound;
@@ -114,7 +120,7 @@ public class GoFish {
             isPlayerOneTurn = !isPlayerOneTurn;
         }
         // Determine victor
-        return playerOneHand.isEmpty();
+        return playerOneScore > playerTwoScore;
     }
     private boolean removeFourOfAKind(Hand hand, String value) {
         int valueCount = hand.countValueInHand(value);
