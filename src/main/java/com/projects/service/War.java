@@ -1,4 +1,8 @@
-package com.projects;
+package com.projects.service;
+
+import com.projects.model.Card;
+import com.projects.model.Deck;
+import com.projects.model.User;
 
 import java.util.ArrayDeque;
 import java.util.Deque;
@@ -6,8 +10,10 @@ import java.util.Scanner;
 
 public class War {
     private int playCount = 0;
-    private String name;
-    private Scanner keyboard = new Scanner(System.in);
+    private User player;
+    // using Menu.keyboard for all input now
+    private Menu menu;
+    // private Scanner keyboard = new Scanner(System.in);
     // Any need to make these Decks instead of generic Deques? I could have a secret readout option if they were.
     private Deque<Card> playerOneHand = new ArrayDeque<>();
     private Deque<Card> playerTwoHand = new ArrayDeque<>();
@@ -15,9 +21,11 @@ public class War {
     // Once we've emptied out the initial deck, we should be able to use this for holding the kitty on ties
     private Deck stack = new Deck();
 
-    public War(String name) {
+    public War(User player, Menu menu) {
         boolean isAskingForInput = true;
-        this.name = promptForName();
+        this.player = player;
+        this.menu = menu;
+        System.out.println("Welcome to WAR, " + player.getName() + ". Good luck!");
         // Deal out cards evenly, starting randomly with user (1) or computer (2)
         dealInitialStack();
         // While neither player's hand is empty, the game continues --
@@ -39,10 +47,10 @@ public class War {
         // End while -- declare someone the victor!
         System.out.println("After " + playCount + " plays, a victor has emerged.");
         if (playerOneHand.isEmpty()) {
-            System.out.println("I'm so sorry, " + this.name + ", but you have lost...");
+            System.out.println("I'm so sorry, " + player.getName() + ", but you have lost...");
         }
         else if (playerTwoHand.isEmpty()){
-            System.out.println("Congratuations, " + this.name + ", you've won!!");
+            System.out.println("Congratulations, " + player.getName() + ", you've won!!");
         }
         else {
             System.out.println("Something has gone wrong...");
@@ -127,11 +135,6 @@ public class War {
         }
     }
 
-    private String promptForName() {
-        System.out.print("Welcome to WAR, good luck!\nWhat's your name? ");
-        return keyboard.nextLine();
-    }
-
     public boolean promptForInput() {
         boolean isReadyToPlay = false;
         // Print approximate size of Player 1's deck
@@ -139,7 +142,7 @@ public class War {
         //
         while(true) {
             System.out.println("Do you want to (P)eek at your top card or are you ready to get on with it?");
-            String command = this.keyboard.nextLine();
+            String command = menu.promptForString();
             if(command.toLowerCase().startsWith("p")) {
                 // Peek at top card in hand
                 // TODO: 6/14/2022 add some flavor text to the top card
@@ -204,6 +207,5 @@ public class War {
             }
             dealPlayerOneNext = !dealPlayerOneNext;
         }
-
     }
 }

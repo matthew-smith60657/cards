@@ -1,10 +1,17 @@
-package com.projects;
+package com.projects.service;
+
+import com.projects.model.Card;
+import com.projects.model.Deck;
+import com.projects.model.Hand;
+import com.projects.model.User;
 
 import java.util.*;
 
 public class GoFish {
     private final int STARTING_HAND_SIZE = 7;
     private final int MAX_COMPUTER_MEMORY_SIZE = 5;
+    private User player;
+    private Menu menu;
     private int playerOneScore = 0;
     private int playerTwoScore = 0;
     // Remember last few selections to avoid over-guessing a specific value
@@ -14,8 +21,8 @@ public class GoFish {
     private Deck deck = new Deck();
     private Hand playerOneHand;
     private Hand playerTwoHand;
-    public GoFish(String name) {
-        playerOneHand = new Hand(name, true);
+    public GoFish(User player, Menu menu) {
+        playerOneHand = new Hand(player.getName(), true);
         playerTwoHand = new Hand("Computer", false);
 
         boolean isPlayerOneTurn = (Math.random() > .5);
@@ -28,7 +35,7 @@ public class GoFish {
         playerOneHand.sortHand(false);
 
         // Play loop, end game when one player's hand is empty
-        boolean isPlayerOneVictorious = playGame(isPlayerOneTurn, name);
+        boolean isPlayerOneVictorious = playGame(isPlayerOneTurn, player.getName());
         if(isPlayerOneVictorious) {
             System.out.println("Congrats! I hope we play again soon.");
         }

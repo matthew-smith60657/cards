@@ -1,4 +1,4 @@
-package com.projects;
+package com.projects.model;
 
 import java.util.ArrayDeque;
 import java.util.Deque;

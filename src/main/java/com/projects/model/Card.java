@@ -1,4 +1,4 @@
-package com.projects;
+package com.projects.model;
 
 public class Card {
     protected static final String[] ACCEPTABLE_VALUES = {"2","3","4","5","6","7","8","9","10","J","Q","K","A"};
@@ -23,7 +23,7 @@ public class Card {
     public String getSuit() {
         return suit;
     }
-    protected static void printAcceptableValues() {
+    public static void printAcceptableValues() {
         String result = "";
         boolean isFirst = true;
         for (String s : ACCEPTABLE_VALUES) {
@@ -39,7 +39,7 @@ public class Card {
         System.out.println(result);
     }
 
-    protected static boolean isMyValueAcceptable(String value) {
+    public static boolean isMyValueAcceptable(String value) {
         for (String acceptable_value : ACCEPTABLE_VALUES) {
             if (acceptable_value.equals(value)) {
                 return true;

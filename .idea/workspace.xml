@@ -5,16 +5,15 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="93969ed2-8d66-4ae2-97cf-87e96ee85104" name="Changes" comment="Finished play loop; still need 4oaK checker &amp; better computer guess selection">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/projects/dao/JdbcUserDao.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/projects/dao/UserDAO.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/projects/model/User.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/TestJdbcUserDao.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/resources/test-data.sql" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/projects/service/Menu.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/projects/GoFish.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/projects/GoFish.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/projects/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/projects/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/RemoveFourtet.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/projects/Card.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/projects/model/Card.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/projects/Deck.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/projects/model/Deck.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/projects/GoFish.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/projects/service/GoFish.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/projects/Hand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/projects/model/Hand.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/projects/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/projects/RunMe.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/projects/War.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/projects/service/War.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -41,13 +40,14 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/Student/workspace/matthew-smith-student-code/module-2/11b_Consuming_RESTful_APIs_Part_1/exercise&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "last_opened_file_path": "C:/Users/Student/workspace/matthew-smith-student-code/module-2/07_Data_Access_and_DAO/lecture-final"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\Student\workspace\projects\cards" />
@@ -59,13 +59,13 @@
       <recent name="" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.TestJdbcUserDao">
-    <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="com.projects.Main" />
+  <component name="RunManager" selected="Application.RunMe">
+    <configuration name="RunMe" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.projects.RunMe" />
       <module name="cards" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="com.projects.*" />
+          <option name="PATTERN" value="com.projects.model.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -84,8 +84,8 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.RunMe" />
         <item itemvalue="JUnit.TestJdbcUserDao" />
-        <item itemvalue="Application.Main" />
       </list>
     </recent_temporary>
   </component>
@@ -171,11 +171,21 @@
           <line>54</line>
           <option name="timeStamp" value="17" />
         </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/com/projects/RunMe.java</url>
+          <line>81</line>
+          <option name="timeStamp" value="20" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/com/projects/service/Menu.java</url>
+          <line>34</line>
+          <option name="timeStamp" value="21" />
+        </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
     <watches-manager>
       <configuration name="Application">
-        <watch expression="card.value" />
+        <watch expression="card.value" language="JAVA" />
       </configuration>
     </watches-manager>
   </component>
