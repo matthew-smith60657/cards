@@ -5,15 +5,13 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="93969ed2-8d66-4ae2-97cf-87e96ee85104" name="Changes" comment="Finished play loop; still need 4oaK checker &amp; better computer guess selection">
-      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/projects/service/Menu.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/projects/dao/JdbcWarDao.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/projects/dao/WarDAO.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/projects/Card.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/projects/model/Card.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/projects/Deck.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/projects/model/Deck.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/projects/GoFish.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/projects/service/GoFish.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/projects/Hand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/projects/model/Hand.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/projects/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/projects/RunMe.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/projects/War.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/projects/service/War.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/projects/RunMe.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/projects/RunMe.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/projects/dao/UserDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/projects/dao/UserDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/projects/model/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/projects/model/User.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/projects/service/War.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/projects/service/War.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -45,7 +43,7 @@
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "last_opened_file_path": "C:/Users/Student/workspace/matthew-smith-student-code/module-2/07_Data_Access_and_DAO/lecture-final"
+    "last_opened_file_path": "C:/Users/Student/workspace/matthew-smith-student-code/module-2/07_Data_Access_and_DAO/exercise"
   }
 }]]></component>
   <component name="RecentsManager">
@@ -173,7 +171,7 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/com/projects/RunMe.java</url>
-          <line>81</line>
+          <line>83</line>
           <option name="timeStamp" value="20" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">

@@ -9,13 +9,14 @@ import com.projects.service.War;
 import org.apache.commons.dbcp2.BasicDataSource;
 
 import javax.sql.DataSource;
-import java.util.Scanner;
+import javax.xml.crypto.Data;
 
 public class RunMe {
 
     User user;
     private final UserDAO userDao;
     private final Menu menu;
+    private final DataSource ds;
 
     public static void main(String[] args) {
         // Initialize local postgresql server
@@ -32,6 +33,7 @@ public class RunMe {
     public RunMe(DataSource ds) {
         // Assign instanced userDao
         userDao = new JdbcUserDao(ds);
+        this.ds = ds;
         menu = new Menu();
     }
 
@@ -63,7 +65,7 @@ public class RunMe {
         }
         // 1: War
         else if (choice == 1) {
-            War war = new War(user, menu);
+            War war = new War(user, menu, ds);
         }
         // 2: Go Fish
         else if (choice == 2) {
@@ -129,7 +131,7 @@ public class RunMe {
             user = userDao.getUser(newId);
         }
     }
-/*
+/* OLD CODE
     public static int promptForInput() {
         final String[] options = {"Exit", "War", "Go Fish"};
         int choice = 0;

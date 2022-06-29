@@ -1,9 +1,12 @@
 package com.projects.service;
 
+import com.projects.dao.JdbcWarDao;
+import com.projects.dao.WarDAO;
 import com.projects.model.Card;
 import com.projects.model.Deck;
 import com.projects.model.User;
 
+import javax.sql.DataSource;
 import java.util.ArrayDeque;
 import java.util.Deque;
 import java.util.Scanner;
@@ -12,7 +15,9 @@ public class War {
     private int playCount = 0;
     private User player;
     // using Menu.keyboard for all input now
-    private Menu menu;
+    private final Menu menu;
+    // initialize WarDAO for record storage
+    private final WarDAO dao;
     // private Scanner keyboard = new Scanner(System.in);
     // Any need to make these Decks instead of generic Deques? I could have a secret readout option if they were.
     private Deque<Card> playerOneHand = new ArrayDeque<>();
@@ -21,11 +26,19 @@ public class War {
     // Once we've emptied out the initial deck, we should be able to use this for holding the kitty on ties
     private Deck stack = new Deck();
 
-    public War(User player, Menu menu) {
+    public War(User player, Menu menu, DataSource ds) {
         boolean isAskingForInput = true;
         this.player = player;
         this.menu = menu;
-        System.out.println("Welcome to WAR, " + player.getName() + ". Good luck!");
+        this.dao = new JdbcWarDao(ds);
+        // If war_id is 0, then initialize record in war table
+        if(player.getWarId() == 0) {
+            player.setWarId(dao.createWar());
+        } else {
+            player = dao.getWar(player);
+        }
+        // Display welcome message & stats
+        welcome();
         // Deal out cards evenly, starting randomly with user (1) or computer (2)
         dealInitialStack();
         // While neither player's hand is empty, the game continues --
@@ -38,24 +51,36 @@ public class War {
             // Resolve playing a card:
             // win, randomly put both cards & any cards in stack on bottom of player 1's deck
             //       announce cards in stack before adding to bottom
-            resolvePlay();
             // lose, randomly put both cards & any cards in stack on bottom of player 2's deck
 
             // tie, put both top cards in stack along with 3 quiet cards from both tops in stack
             //      loop this resolution until win or lose
+            resolvePlay();
         }
         // End while -- declare someone the victor!
         System.out.println("After " + playCount + " plays, a victor has emerged.");
         if (playerOneHand.isEmpty()) {
             System.out.println("I'm so sorry, " + player.getName() + ", but you have lost...");
+            player.warCompleted(false, playCount);
         }
         else if (playerTwoHand.isEmpty()){
             System.out.println("Congratulations, " + player.getName() + ", you've won!!");
+            player.warCompleted(true, playCount);
         }
         else {
             System.out.println("Something has gone wrong...");
         }
         // Add name to the Hall of Fame & display
+    }
+
+    private void welcome() {
+        System.out.println("\n---- THIS MEANS WAR!!! ----");
+        if(player.getPlayedWar() == 0) {
+            System.out.println("\nLooks like this is your first game, " + player.getName() + ". You can do this!\n");
+        } else {
+            System.out.println("Good to see you back, " + player.getName() + ".");
+            System.out.println("You've played " + player.getPlayedWar() + "games so far and won " + player.getWonWar() + " of them.\n");
+        }
     }
 
     private void resolvePlay() {
@@ -79,6 +104,7 @@ public class War {
         }
         else {
             System.out.println("A tie...!");
+            // TODO: 6/29/2022 Check that each player actually has 3 cards plus one to play & handle leaving fewer 
             System.out.println("Put 3 cards in the kitty and I will, too.\n");
             for (int i = 0; i < 3; i++) {
                 if(Math.random() >= 0.5) {
@@ -103,7 +129,7 @@ public class War {
                 playerOneHand.addLast(stack.pullTopCard(true));
             }
         } else {
-            System.out.println("Too bad, I win the kitty!!\n");
+            System.out.println("That's too bad for you, I win the kitty!!\n");
             while(stack.size() > 0) {
                 playerTwoHand.addLast(stack.pullTopCard(true));
             }
@@ -152,6 +178,7 @@ public class War {
                 System.out.println("** Current Status **");
                 System.out.println("You are holding " + playerOneHand.size() + " cards.");
                 System.out.println("I am holding " + playerTwoHand.size() + " cards.");
+                // TODO: 6/29/2022 Include number of aces held 
             }
             else if (command.equals("loop")) {
                 return false;

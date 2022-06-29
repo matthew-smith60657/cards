@@ -1,9 +1,7 @@
 package com.projects.dao;
 
 import com.projects.model.User;
-import org.apache.commons.dbcp2.BasicDataSource;
 
-import javax.sql.DataSource;
 import java.util.List;
 
 

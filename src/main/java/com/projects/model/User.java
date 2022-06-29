@@ -6,14 +6,14 @@ public class User {
     private String name;
     private String passwordNotSecureAtAll;
     private int warId;
-    private String wonWar;
-    private String playedWar;
-    private String fastestWarWin;
-    private String slowestWarWin;
+    private int wonWar;
+    private int playedWar;
+    private int fastestWarWin;
+    private int slowestWarWin;
     private int goFishId;
-    private String wonGoFish;
-    private String playedGoFish;
-    private String mostPointsGoFish;
+    private int wonGoFish;
+    private int playedGoFish;
+    private int mostPointsGoFish;
 
     public User () {
     }
@@ -30,6 +30,14 @@ public class User {
         this.passwordNotSecureAtAll = pwd;
         this.warId = warId;
         this.goFishId = goFishId;
+    }
+    // War User Constructor -- I wonder if I should have made child class for WarUser instead of this
+    public User(int warId, int playedWar, int wonWar, int fastestWarWin, int slowestWarWin) {
+        this.warId = warId;
+        this.playedWar = playedWar;
+        this.wonWar = wonWar;
+        this.fastestWarWin = fastestWarWin;
+        this.slowestWarWin = slowestWarWin;
     }
 
     public int getUserId() {
@@ -72,60 +80,100 @@ public class User {
         this.goFishId = goFishId;
     }
 
-    public String getWonWar() {
+    public int getWonWar() {
         return wonWar;
     }
 
-    public void setWonWar(String wonWar) {
-        this.wonWar = wonWar;
+    public void increaseWonWar() {
+        this.wonWar++;
     }
 
-    public String getPlayedWar() {
+    public int getPlayedWar() {
         return playedWar;
     }
 
-    public void setPlayedWar(String playedWar) {
-        this.playedWar = playedWar;
+    public void increasePlayedWar() {
+        this.playedWar++;
     }
 
-    public String getFastestWarWin() {
+    public int getFastestWarWin() {
         return fastestWarWin;
     }
 
-    public void setFastestWarWin(String fastestWarWin) {
-        this.fastestWarWin = fastestWarWin;
+    public void setIfFastestWarWin(int fastestWarWin) {
+        if(this.fastestWarWin > fastestWarWin) {
+            if(this.fastestWarWin != 0) {
+                System.out.println("You set a record for your fastest win!");
+                System.out.println("You've improved from " + this.fastestWarWin + " to " + fastestWarWin + ". Way to kick some butt!");
+            };
+            this.fastestWarWin = fastestWarWin;
+        }
     }
 
-    public String getSlowestWarWin() {
+    public int getSlowestWarWin() {
         return slowestWarWin;
     }
 
-    public void setSlowestWarWin(String slowestWarWin) {
-        this.slowestWarWin = slowestWarWin;
+    public void setIfSlowestWarWin(int slowestWarWin) {
+        if(this.slowestWarWin < slowestWarWin) {
+            if(this.slowestWarWin != 0) {
+                System.out.println("You set a record for your slowest win!");
+                System.out.println("You've 'improved' from " + this.slowestWarWin + " to " + slowestWarWin + ". Way to stick it out!");
+            };
+            this.slowestWarWin = slowestWarWin;
+        }
     }
 
-    public String getWonGoFish() {
+    public int getWonGoFish() {
         return wonGoFish;
     }
 
-    public void setWonGoFish(String wonGoFish) {
-        this.wonGoFish = wonGoFish;
+    public void incrementWonGoFish() {
+        this.wonGoFish++;
     }
 
-    public String getPlayedGoFish() {
+    public int getPlayedGoFish() {
         return playedGoFish;
     }
 
-    public void setPlayedGoFish(String playedGoFish) {
-        this.playedGoFish = playedGoFish;
+    public void incrementPlayedGoFish() {
+        this.playedGoFish++;
     }
 
-    public String getMostPointsGoFish() {
+    public int getMostPointsGoFish() {
         return mostPointsGoFish;
     }
 
-    public void setMostPointsGoFish(String mostPointsGoFish) {
-        this.mostPointsGoFish = mostPointsGoFish;
+    public boolean setIfMostPointsGoFish(int mostPointsGoFish) {
+        if(this.mostPointsGoFish < mostPointsGoFish) {
+            this.mostPointsGoFish = mostPointsGoFish;
+            return true;
+        }
+        return false;
+    }
+    // Copy User record from DAO into logged in user instance
+    public void copyWarRecordsIntoUser (User warUser) {
+        if(this.warId == 0) {
+            // First time War user
+            this.warId = warUser.getWarId();
+        }
+        if (this.warId == warUser.getWarId()) {
+            this.playedWar = warUser.getPlayedWar();
+            this.wonWar = warUser.getWonWar();
+            this.slowestWarWin = warUser.getSlowestWarWin();
+            this.fastestWarWin = warUser.getFastestWarWin();
+        } // else they match and carry on with the import
+        else {
+            System.out.println("Matt messed up and these tables don't match...");
+        }
+    }
+    public void warCompleted(boolean victory, int length) {
+        this.increasePlayedWar();
+        if(victory) {
+            this.increaseWonWar();
+            this.setIfFastestWarWin(length);
+            this.setIfSlowestWarWin(length);
+        }
     }
 
     public boolean validatePassword(String pwd) {
