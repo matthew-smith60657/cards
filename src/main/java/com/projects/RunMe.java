@@ -65,11 +65,20 @@ public class RunMe {
         }
         // 1: War
         else if (choice == 1) {
+            boolean updateUserRecord = user.getWarId() == 0;
             War war = new War(user, menu, ds);
+            System.out.println("warID: " + user.getWarId());
+            if(updateUserRecord) {
+                userDao.updateUserWarID(user);
+            }
         }
         // 2: Go Fish
         else if (choice == 2) {
+            boolean updateUserRecord = user.getGoFishId() == 0;
             GoFish goFish = new GoFish(user, menu);
+            if(updateUserRecord) {
+                userDao.updateUserGoFishID(user);
+            }
         }
     }
 

@@ -9,7 +9,6 @@ import com.projects.model.User;
 import javax.sql.DataSource;
 import java.util.ArrayDeque;
 import java.util.Deque;
-import java.util.Scanner;
 
 public class War {
     private int playCount = 0;
@@ -70,6 +69,7 @@ public class War {
         else {
             System.out.println("Something has gone wrong...");
         }
+        dao.updateWar(player);
         // Add name to the Hall of Fame & display
     }
 
@@ -79,7 +79,7 @@ public class War {
             System.out.println("\nLooks like this is your first game, " + player.getName() + ". You can do this!\n");
         } else {
             System.out.println("Good to see you back, " + player.getName() + ".");
-            System.out.println("You've played " + player.getPlayedWar() + "games so far and won " + player.getWonWar() + " of them.\n");
+            System.out.println("You've played " + player.getPlayedWar() + " games so far and won " + player.getWonWar() + " of them.\n");
         }
     }
 
@@ -104,16 +104,42 @@ public class War {
         }
         else {
             System.out.println("A tie...!");
-            // TODO: 6/29/2022 Check that each player actually has 3 cards plus one to play & handle leaving fewer 
-            System.out.println("Put 3 cards in the kitty and I will, too.\n");
-            for (int i = 0; i < 3; i++) {
-                if(Math.random() >= 0.5) {
-                    stack.addFirst(playerOneHand.removeFirst());
-                    stack.addFirst(playerTwoHand.removeFirst());
+            if(playerOneHand.isEmpty() || playerTwoHand.isEmpty()) {
+                // Edge case where a tie occurred with a player's last card, that's game over
+                if(playerOneHand.isEmpty()) {
+                    System.out.println("Oh wow, you ran out of cards!");
+                } else {
+                    System.out.println("Uhh.. I don't have any cards left...");
                 }
-                else {
-                    stack.addFirst(playerTwoHand.removeFirst());
-                    stack.addFirst(playerOneHand.removeFirst());
+            } else {
+                // Normal tie loop
+                System.out.println("Put 3 cards in the kitty and I will, too.\n");
+
+                int playerOneKittyLimit = Math.min(playerOneHand.size() - 1, 3);
+                if (playerOneKittyLimit < 3) {
+                    System.out.println("Uh-oh, looks like your down to your last card!");
+                }
+                int playerTwoKittyLimit = Math.min(playerTwoHand.size() - 1, 3);
+                if (playerTwoKittyLimit < 3) {
+                    System.out.println("Yikes, I'm down to my last card...");
+                }
+
+                for (int i = 0; i < 3; i++) {
+                    if (Math.random() >= 0.5) {
+                        if (i < playerOneKittyLimit) {
+                            stack.addFirst(playerOneHand.removeFirst());
+                        }
+                        if (i < playerTwoKittyLimit) {
+                            stack.addFirst(playerTwoHand.removeFirst());
+                        }
+                    } else {
+                        if (i < playerTwoKittyLimit) {
+                            stack.addFirst(playerTwoHand.removeFirst());
+                        }
+                        if (i < playerOneKittyLimit) {
+                            stack.addFirst(playerOneHand.removeFirst());
+                        }
+                    }
                 }
             }
         }

@@ -23,13 +23,25 @@ public class User {
         this.passwordNotSecureAtAll = pwd;
     }
 
-    // This is really only practical for the DAO testing
+    // This is really only practical for the User DAO testing
     public User(int userId, String name, String pwd, int warId, int goFishId) {
         this.userId = userId;
         this.name = name;
         this.passwordNotSecureAtAll = pwd;
         this.warId = warId;
         this.goFishId = goFishId;
+    }
+    // This is really only practical for the War DAO testing
+    public User(int userId, String name, String pwd, int warId, int goFishId, int playedWar, int wonWar, int fastestWarWin, int slowestWarWin) {
+        this.userId = userId;
+        this.name = name;
+        this.passwordNotSecureAtAll = pwd;
+        this.warId = warId;
+        this.goFishId = goFishId;
+        this.playedWar = playedWar;
+        this.wonWar = wonWar;
+        this.fastestWarWin = fastestWarWin;
+        this.slowestWarWin = slowestWarWin;
     }
     // War User Constructor -- I wonder if I should have made child class for WarUser instead of this
     public User(int warId, int playedWar, int wonWar, int fastestWarWin, int slowestWarWin) {
@@ -101,7 +113,7 @@ public class User {
     }
 
     public void setIfFastestWarWin(int fastestWarWin) {
-        if(this.fastestWarWin > fastestWarWin) {
+        if(this.fastestWarWin > fastestWarWin || this.fastestWarWin == 0) {
             if(this.fastestWarWin != 0) {
                 System.out.println("You set a record for your fastest win!");
                 System.out.println("You've improved from " + this.fastestWarWin + " to " + fastestWarWin + ". Way to kick some butt!");
@@ -115,7 +127,7 @@ public class User {
     }
 
     public void setIfSlowestWarWin(int slowestWarWin) {
-        if(this.slowestWarWin < slowestWarWin) {
+        if(this.slowestWarWin < slowestWarWin || slowestWarWin == 0) {
             if(this.slowestWarWin != 0) {
                 System.out.println("You set a record for your slowest win!");
                 System.out.println("You've 'improved' from " + this.slowestWarWin + " to " + slowestWarWin + ". Way to stick it out!");

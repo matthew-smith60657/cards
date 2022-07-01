@@ -5,13 +5,15 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="93969ed2-8d66-4ae2-97cf-87e96ee85104" name="Changes" comment="Finished play loop; still need 4oaK checker &amp; better computer guess selection">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/projects/dao/JdbcWarDao.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/projects/dao/WarDAO.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/projects/RunMe.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/projects/RunMe.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/projects/dao/JdbcUserDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/projects/dao/JdbcUserDao.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/projects/dao/JdbcWarDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/projects/dao/JdbcWarDao.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/projects/dao/UserDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/projects/dao/UserDAO.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/projects/model/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/projects/model/User.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/projects/service/War.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/projects/service/War.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/TestJdbcUserDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/TestJdbcDao.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/resources/test-data.sql" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/resources/test-data.sql" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -38,16 +40,17 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "last_opened_file_path": "C:/Users/Student/workspace/matthew-smith-student-code/module-2/07_Data_Access_and_DAO/exercise"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/Student/workspace/projects/cards/src/test/resources&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\Student\workspace\projects\cards\src\test\resources" />
       <recent name="C:\Users\Student\workspace\projects\cards" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
@@ -71,11 +74,31 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="TestJdbcUserDao" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="TestJdbcDao" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="cards" />
       <option name="PACKAGE_NAME" value="" />
-      <option name="MAIN_CLASS_NAME" value="TestJdbcUserDao" />
+      <option name="MAIN_CLASS_NAME" value="TestJdbcDao" />
       <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="TestJdbcDao.update_war_record" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="cards" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" value="TestJdbcDao" />
+      <option name="METHOD_NAME" value="update_war_record" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="TestJdbcDao.users_one_and_two_have_war_records" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="cards" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" value="TestJdbcDao" />
+      <option name="METHOD_NAME" value="users_one_and_two_have_war_records" />
+      <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -83,7 +106,9 @@
     <recent_temporary>
       <list>
         <item itemvalue="Application.RunMe" />
-        <item itemvalue="JUnit.TestJdbcUserDao" />
+        <item itemvalue="JUnit.TestJdbcDao" />
+        <item itemvalue="JUnit.TestJdbcDao.update_war_record" />
+        <item itemvalue="JUnit.TestJdbcDao.users_one_and_two_have_war_records" />
       </list>
     </recent_temporary>
   </component>
@@ -165,22 +190,42 @@
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/test/java/TestJdbcDao.java</url>
+          <line>111</line>
+          <option name="timeStamp" value="28" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/com/projects/dao/JdbcUserDao.java</url>
-          <line>54</line>
-          <option name="timeStamp" value="17" />
+          <line>113</line>
+          <option name="timeStamp" value="30" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/com/projects/RunMe.java</url>
-          <line>83</line>
-          <option name="timeStamp" value="20" />
+          <line>67</line>
+          <option name="timeStamp" value="31" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/com/projects/service/Menu.java</url>
-          <line>34</line>
-          <option name="timeStamp" value="21" />
+          <url>file://$PROJECT_DIR$/src/main/java/com/projects/RunMe.java</url>
+          <line>69</line>
+          <option name="timeStamp" value="32" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/com/projects/service/War.java</url>
+          <line>28</line>
+          <option name="timeStamp" value="33" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
+    <pin-to-top-manager>
+      <pinned-members>
+        <PinnedItemInfo parentTag="com.projects.model.User" memberName="playedWar" />
+        <PinnedItemInfo parentTag="com.projects.model.User" memberName="wonWar" />
+        <PinnedItemInfo parentTag="com.projects.model.User" memberName="slowestWarWin" />
+        <PinnedItemInfo parentTag="com.projects.model.User" memberName="fastestWarWin" />
+        <PinnedItemInfo parentTag="com.projects.model.User" memberName="userId" />
+        <PinnedItemInfo parentTag="com.projects.model.User" memberName="warId" />
+      </pinned-members>
+    </pin-to-top-manager>
     <watches-manager>
       <configuration name="Application">
         <watch expression="card.value" language="JAVA" />

@@ -36,7 +36,7 @@ CREATE TABLE user_table
         constraint fk_user_go_fish foreign key (go_fish_id) references go_fish(go_fish_id)
 );
 INSERT INTO war (played_war, won_war, shortest_win, longest_win)
-    VALUES (1, 1, 50, 250),
+    VALUES (3, 2, 50, 250),
            (2, 0, null, null);
 
 INSERT INTO go_fish (played_go_fish, won_go_fish, most_points_go_fish)

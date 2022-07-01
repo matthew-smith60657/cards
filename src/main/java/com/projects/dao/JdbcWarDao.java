@@ -32,8 +32,11 @@ public class JdbcWarDao implements WarDAO {
                         "WHERE war_id = ? ;";
 
         SqlRowSet rowSet = jdbcTemplate.queryForRowSet(sql, user.getWarId());
-
-        return mapWarToExistingUser(user, rowSet);
+        if(rowSet.next()) {
+            return mapWarToExistingUser(user, rowSet);
+        } else {
+            return null;
+        }
     }
 
     @Override
@@ -50,9 +53,20 @@ public class JdbcWarDao implements WarDAO {
                                  user.getSlowestWarWin(),
                                  user.getWarId());
         // TODO: 6/29/2022 Need to validate the war table update went ok?
+
+        sql = "SELECT played_war, won_war, shortest_win, longest_win FROM war WHERE war_id = ? ;";
+        SqlRowSet rowSet = jdbcTemplate.queryForRowSet(sql, user.getWarId());
+
+        if(rowSet.next()) {
+            System.out.println("Stored played_war: " + rowSet.getInt("played_war"));
+            System.out.println("Stored won_war: " + rowSet.getInt("won_war"));
+            System.out.println("Stored shortest_win: " + rowSet.getInt("shortest_win"));
+            System.out.println("Stored longest_win: " + rowSet.getInt("longest_win"));
+        }
     }
 
     private User mapWarToExistingUser(User user, SqlRowSet rowSet) {
+
         User warUser = new User(rowSet.getInt("war_id"),
                                 rowSet.getInt("played_war"),
                                 rowSet.getInt("won_war"),

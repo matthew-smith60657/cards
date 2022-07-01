@@ -15,8 +15,12 @@ public interface UserDAO {
     public List<User> getAllUserNames();
     // Create New User (return id)
     public int createUser(String name, String pwd);
-    // Update Existing User
+    // Update Existing User name and/or password
     public void updateUser(User user);
+    // Update Existing User war_id
+    public void updateUserWarID(User user);
+    // Update Existing User go_fish_id
+    public void updateUserGoFishID(User user);
     // Delete User (return id)
     public int deleteUser(User user);
 

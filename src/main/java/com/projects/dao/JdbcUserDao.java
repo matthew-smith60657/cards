@@ -113,9 +113,32 @@ public class JdbcUserDao implements UserDAO {
     public void updateUser(User user) {
         String sql = "UPDATE user_table " +
                         "SET name = ?, " +
-                        "password_not_secure_at_all = ? " +
+                        "password_not_secure_at_all = ?, " +
                         "WHERE user_id = ? ;";
+
         jdbcTemplate.update(sql, user.getName(), user.getPasswordNotSecureAtAll(), user.getUserId());
+
+        sql = "SELECT war_id, go_fish_id FROM user_table WHERE user_id = ? ;";
+        SqlRowSet rowSet = jdbcTemplate.queryForRowSet(sql, user.getWarId());
+
+        if(rowSet.next()) {
+            System.out.println("Stored War ID: " + rowSet.getInt("war_id"));
+            System.out.println("Stored Go Fish ID: " + rowSet.getInt("go_fish_id"));
+        }
+    }
+
+    public void updateUserWarID(User user) {
+        String sql = "UPDATE user_table " +
+                        "SET war_id = ? " +
+                        "WHERE user_id = ? ;";
+        jdbcTemplate.update(sql, user.getWarId(), user.getUserId());
+    }
+
+    public void updateUserGoFishID(User user) {
+        String sql = "UPDATE user_table " +
+                        "SET go_fish_id = ? " +
+                        "WHERE user_id = ? ;";
+        jdbcTemplate.update(sql, user.getGoFishId(), user.getUserId());
     }
 
     @Override
