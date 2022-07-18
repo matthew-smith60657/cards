@@ -11,14 +11,14 @@ The cards project is a library for creating & playing games involving playing ca
 - Java class Main with a simple menu system to select a game to play or perform randomization tests on the shuffling functions.
 
 ##In progress
-- Add victory condition & flavortext for most four-tets, as well as score updates.
-- Connect to localhost database to store user login & statistics
+- Add victory condition & flavortext for most four-tets, as well as score updates for Go Fish
 - Shift localhost database to cloud database
 
 ##Future ideas
 - Old Maid
 - Crazy Eights
 - Rummy
-- Java class AI to encapsulate computer opponent selection mechanisms & memory
+- Java class AI to encapsulate and improve computer opponent selection mechanisms & memory
 - Java class Menu to improve & encapsulate the interface.
-- Record keeping & possible token-winning system
+- Token-winning and wagering system
+- HTML/CSS interface
